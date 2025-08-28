@@ -98,9 +98,13 @@ if uploaded_file is not None:
             plt.xticks(rotation='vertical')
             st.pyplot(fig)
 
-        user_heatmap=helper.activity_heatmap(selected_user,df)
-        fig,ax = plt.subplots()
-        ax = sns.heatmap(user_heatmap)
+        # User Activity Heatmap
+        st.header("Activity Heatmap")
+        user_heatmap = helper.activity_heatmap(selected_user, df)
+        fig, ax = plt.subplots()
+        sns.heatmap(user_heatmap, ax=ax,cmap='viridis')
+        ax.set_xlabel("Period")      # Set custom x-axis label
+        ax.set_ylabel("Day Name")    # Set custom y-axis label
         st.pyplot(fig)
 
         # finding the busiest uses in the group(Group Level)
@@ -148,9 +152,9 @@ if uploaded_file is not None:
         with col2:
             fig,ax=plt.subplots()
             ax.pie(emoji_df[1].head(10),labels=emoji_df[0].head(10),autopct="%0.2f")
-            st.pyplot(fig)  
-
-    st.header("Select User from the dropdown") 
+            st.pyplot(fig) 
+    else: 
+        st.header("Select User from the dropdown") 
          
 else:
     # st.title("WhatsApp Chat Analysis")
