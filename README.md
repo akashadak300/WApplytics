@@ -94,4 +94,4 @@ streamlit run app.py
 
 ---
 
-Demo Link: https://wca-campusx.herokuapp.com/
+Demo Link: https://wapplytics.onrender.com/
